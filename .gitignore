@@ -1,0 +1,18 @@
+# Environment variables
+.env
+
+# Database config
+db_config.php
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
