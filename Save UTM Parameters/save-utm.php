@@ -20,20 +20,20 @@ if (!$input) {
 $allowedKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 $errors = [];
 
-// Check required fields
-if (empty($input['utm_source'])) {
-    $errors['utm_source'] = 'Required field';
-}
-
-if (empty($input['utm_medium'])) {
-    $errors['utm_medium'] = 'Required field';
-}
-
 // Check only allowed keys
 foreach ($input as $key => $value) {
     if (!in_array($key, $allowedKeys)) {
         $errors[$key] = 'Invalid UTM parameter';
     }
+}
+
+// Check required fields exist and not empty
+if (!isset($input['utm_source']) || trim($input['utm_source']) === '') {
+    $errors['utm_source'] = 'UTM source is required';
+}
+
+if (!isset($input['utm_medium']) || trim($input['utm_medium']) === '') {
+    $errors['utm_medium'] = 'UTM medium is required';
 }
 
 // Check format and length
